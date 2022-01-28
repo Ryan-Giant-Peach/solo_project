@@ -24,8 +24,24 @@ def select_all():
         source = Source(row['items'], row['no_items'], sound, row['id'] )
         sources.append(source)
     return sources
+
+def select(id):
+    source = None
+    sql = "SELECT * FROM sources WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        sound = sound_repository.select(result['sound_id'])
+        source = Source(result['items'], result['no_items'], sound, result['id'] )
+    return source
     
 def delete(id):
     sql = "DELETE  FROM sources WHERE id = %s"
     values = [id]
-    run_sql(sql, values) 
+    run_sql(sql, values)
+
+def update(source):
+    sql = "UPDATE sources SET (items, no_items, sound_id = (%s, %s, %s) WHERE id = %s"
+    values = [source.items, source.no_items, source.sound.id, source.id]
+    run_sql(sql, values)

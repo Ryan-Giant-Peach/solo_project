@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <p><b>{{source.sound.sound_name}}</b></p>
+    <p><i>{{source.sound.genre}}</i></p>
+    <hr>
+    
+    <p>{{source.no_items}} items needed </p>
+    <p>{{source.items}}</p> 
+
+    <p><a href="/sources/{{source.id}}/edit">Edit</a></p>
+</div>
+
+{% endblock %}
