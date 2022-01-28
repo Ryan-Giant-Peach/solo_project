@@ -32,3 +32,8 @@ def select(id):
     if result is not None:
         sound = Sound(result['sound_name'], result['genre'], result['id'] )
     return sound
+
+def delete(id):
+    sql = "DELETE  FROM sounds WHERE id = %s"
+    values = [id]
+    run_sql(sql, values) 

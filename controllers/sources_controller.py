@@ -15,3 +15,21 @@ def sources():
 def show_sources(id):
     source = source_repository.select(id)
     return render_template("sources/show.html", source = source)
+
+@sources_blueprint.route("/sources/<id>/delete", methods=['POST'])
+def delete_source(id):
+    source_repository.delete(id)
+    return redirect('/sources')
+
+
+# CREATE
+@sources_blueprint.route("/sources", methods=['POST'])
+def create_source():
+    items = request.form['items']
+    no_items = request.form['no_items']
+    duration = request.form['duration']
+    completed = request.form['completed']
+    user = user_repository.select(user_id)
+    task = Task(description, user, duration, completed)
+    task_repository.save(task)
+    return redirect('/tasks')

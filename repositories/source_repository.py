@@ -11,3 +11,21 @@ def save(source):
     id = results[0]['id']
     source.id = id
     return source
+
+
+def select_all():
+    sources = []
+
+    sql = "SELECT * FROM sources"
+    results = run_sql(sql)
+
+    for row in results:
+        sound = sound_repository.select(row['sound_id'])
+        source = Source(row['items'], row['no_items'], sound, row['id'] )
+        sources.append(source)
+    return sources
+    
+def delete(id):
+    sql = "DELETE  FROM sources WHERE id = %s"
+    values = [id]
+    run_sql(sql, values) 
