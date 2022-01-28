@@ -31,8 +31,9 @@ def delete_source(id):
 def create_source():
     items = request.form['items']
     no_items = request.form['no_items']
+    sound_id = request.form['sound_id']
     sound = sound_repository.select(sound_id)
-    source = Source(items, no_items)
+    source = Source(items, no_items, sound)
     source_repository.save(source)
     return redirect('/sources')
 

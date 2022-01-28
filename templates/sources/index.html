@@ -11,9 +11,10 @@
       <div class="title">
         {{source.items}}
         <span class="pages">{{source.no_items}} items used</span>
-        <a href="/sources/{{source.id}}">EDIT</a>
-      </div>
+      </div>      
       <div class="buttons">
+        <a href="/sources/{{source.id}}">EDIT</a>
+        
         <form class="delete-form" action="/sources/{{source.id}}/delete" method="POST">
         
             <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="border-radius: 50px; color: red; aria-hidden:"true"; ></i></button>

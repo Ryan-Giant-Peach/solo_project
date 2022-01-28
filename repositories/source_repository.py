@@ -42,6 +42,6 @@ def delete(id):
     run_sql(sql, values)
 
 def update(source):
-    sql = "UPDATE sources SET (items, no_items, sound_id = (%s, %s, %s) WHERE id = %s"
+    sql = "UPDATE sources SET (items, no_items, sound_id) = (%s, %s, %s) WHERE id = %s"
     values = [source.items, source.no_items, source.sound.id, source.id]
     run_sql(sql, values)
