@@ -9,8 +9,16 @@
     
     <p>{{source.no_items}} items needed </p>
     <p>{{source.items}}</p> 
+    <audio controls autoplay muted>
+        <source src="/static/audio/{{source.sound.id}}.wav" type="audio/wav">
+      </audio>
 
     <p><a href="/sources/{{source.id}}/edit">EDIT</a></p>
+
+    <video width="320" height="240" controls>
+        <source src="/static/video/{{source.sound.id}}.mp4" type="video/mp4">
+      </video>
+
 </div>
 
 {% endblock %}

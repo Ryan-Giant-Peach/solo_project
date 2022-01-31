@@ -3,6 +3,7 @@ from flask import Blueprint
 from repositories import source_repository
 from repositories import sound_repository
 from models.source import Source
+from models.sound import Sound
 
 sources_blueprint = Blueprint("sources", __name__)
 
@@ -19,7 +20,7 @@ def show_sources(id):
 @sources_blueprint.route("/sources/new", methods=['GET'])
 def new_source():
     sounds = sound_repository.select_all()
-    return render_template("sources/new.html", all_sounds = sounds)
+    return render_template("sounds/new.html", all_sounds = sounds)
 
 @sources_blueprint.route("/sources/<id>/delete", methods=['POST'])
 def delete_source(id):
@@ -27,15 +28,15 @@ def delete_source(id):
     return redirect('/sources')
 
 # CREATE
-@sources_blueprint.route("/sources", methods=['POST'])
-def create_source():
-    items = request.form['items']
-    no_items = request.form['no_items']
-    sound_id = request.form['sound_id']
-    sound = sound_repository.select(sound_id)
-    source = Source(items, no_items, sound)
-    source_repository.save(source)
-    return redirect('/sources')
+# @sources_blueprint.route("/sources", methods=['POST'])
+# def create_source():
+#     items = request.form['items']
+#     no_items = request.form['no_items']
+#     sound_id = request.form['sound_id']
+#     sound = sound_repository.select(sound_id)
+#     source = Source(items, no_items, sound)
+#     source_repository.save(source)
+#     return redirect('/sources')
 
 # EDIT
 # GET
