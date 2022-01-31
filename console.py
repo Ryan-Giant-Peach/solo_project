@@ -4,7 +4,7 @@ from models.sound import Sound
 import repositories.source_repository as source_repository
 import repositories.sound_repository as sound_repository
 
-sound1 = Sound("Punch", "Hyper-realistic")
+sound1 = Sound("Falcon Punch", "Cartoon Violence")
 sound_repository.save(sound1)
 sound2 = Sound("Energy Sword", "Sci-fi")
 sound_repository.save(sound2)
