@@ -71,6 +71,8 @@ body{
     color: white;
     border-radius: 50px;
   }
+
+
   
   .menu li a{
     text-decoration: none;
@@ -86,6 +88,10 @@ body{
     color: white;
     font-family: 'Courier New', monospace; font-size: 14px;
   }
+
+  .menu li a:hover{
+  color: yellow;
+}
   
   .container{
     display: flex;
